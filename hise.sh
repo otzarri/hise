@@ -9,7 +9,7 @@ fi
 ports_svc=("${@}")
 hise_path="${HOME}/Hacking/hise"
 
-if [ ! -f "${hise_path}" ]; then echo "HiddenServiceDir ${hise_path}/hidden-service" > ${hise_path}/torrc; fi
+if [ ! -f "${hise_path}/torrc" ]; then echo "HiddenServiceDir ${hise_path}/hidden-service" > ${hise_path}/torrc; fi
 
 for port_svc in ${ports_svc[@]}; do
     if [[ ${port_svc} -le 1024 ]]; then port_fwd=$((port_svc + 50000)); else port_fwd=${port_svc}; fi
